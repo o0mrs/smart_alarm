@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun:wght@500&display=swap');
+.bga{
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#2e2447+0,1f2029+100 */
+  background: rgb(2, 12, 27); /* Old browsers */
+  background: -moz-linear-gradient(top,   rgb(16, 15, 15) 0% rgb(28, 29, 36) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,   rgb(16, 15, 15) 0%,rgb(28, 29, 36) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgb(13, 13, 13) 0%,rgb(20, 21, 25) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#020c1b', endColorstr='#1f2029',GradientType=0 ); /* IE6-9 */
+}
+.empliyeecard{
+  background:
+  linear-gradient(rgb(0, 0, 0), transparent),
+  linear-gradient(to top left, rgb(0, 13, 37), transparent),
+  linear-gradient(to top right, rgb(53, 52, 0), transparent),
+  linear-gradient(to bottom left, rgb(1, 65, 56), transparent),
+  linear-gradient(to bottom right, rgb(4, 40, 61), transparent);
+
+background-blend-mode: screen;
+}
+.roboto{
+font-family: 'Roboto', sans-serif;
+}
+.b{
+    -webkit-tap-highlight-color: transparent;
+}
+svg {
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    
+   }
+   #pulseLine {
+       stroke: #C7F8E4;
+       stroke-width: 4px;
+       fill: none;
+       stroke-linecap: round;
+       stroke-linejoin: round;
+   }
+   .dda{
+    font-family: 'Reem Kufi Fun', sans-serif;
+
+   }
+   
+   
+   
+   .gsap-3-logo {
+   width: 20vw;
+   max-width: 150px;
+   position: fixed;
+   bottom: 15px;
+   right: 15px;
+   }
+   .bl{
+    bottom: 0;
+    position: fixed;
+    left: 50px;
+}
+.b{
+    -webkit-tap-highlight-color: transparent;
+}
+*{
+    -webkit-tap-highlight-color: transparent;
+
+}
+#dds{
+    width: 96vw;
+    }
+    #m22{
+      margin-bottom: 74rem;
+    }
+    #msgg{
+      width: auto;
+      max-width: 20rem;
+    }
+    #inmsg{
+        width: 100%; 
+       height: 40px;
+       justify-content: center;
+       align-items: center;
+       position: fixed;
+       bottom: 4px;
+       font-family: 'Cairo', sans-serif;
+      }
+      #inmsgcam{
+       bottom: 12px;
+       justify-content: center;
+       align-items: center;
+       position: fixed;
+      }
+      #inmsgsend{
+       font-family: 'Cairo', sans-serif;
+       justify-content: center;
+       align-items: center;
+       position: fixed;
+       bottom: -0px;
+       right: 16px;
+      }
+      .ttt{
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: -0px;
+
+      }
+      .v{
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: -0px;
+
+      }
+      .ssa{
+        object-fit: cover;
+      }
