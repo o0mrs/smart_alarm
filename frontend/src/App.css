@@ -1,22 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun:wght@500&display=swap');
 .bga{
-/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#2e2447+0,1f2029+100 */
   background: rgb(2, 12, 27); /* Old browsers */
-  background: -moz-linear-gradient(top,   rgb(16, 15, 15) 0% rgb(28, 29, 36) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top,   rgb(16, 15, 15) 0%,rgb(28, 29, 36) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom,  rgb(13, 13, 13) 0%,rgb(20, 21, 25) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: -moz-linear-gradient(top,  rgb(1, 7, 16) 0%,rgb(21, 21, 27) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgb(1, 7, 16) 0%,rgb(21, 21, 27) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgb(17, 17, 17) 0%,rgb(15, 15, 15) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#020c1b', endColorstr='#1f2029',GradientType=0 ); /* IE6-9 */
-}
+}  
 .empliyeecard{
-  background:
-  linear-gradient(rgb(0, 0, 0), transparent),
-  linear-gradient(to top left, rgb(0, 13, 37), transparent),
-  linear-gradient(to top right, rgb(53, 52, 0), transparent),
-  linear-gradient(to bottom left, rgb(1, 65, 56), transparent),
-  linear-gradient(to bottom right, rgb(4, 40, 61), transparent);
-
-background-blend-mode: screen;
+  background-color: #242B48;
 }
 .roboto{
 font-family: 'Roboto', sans-serif;
