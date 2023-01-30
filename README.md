@@ -1,4 +1,4 @@
-# smart_alarm
+# AI ALARM
 This project is an AI-powered alarm system that uses a camera to detect if you have actually awoken from sleep. The system is written in JavaScript and can be accessed through a website where you can set, modify, and stop alarms. One of the unique features of this system is its ability to determine the optimal time for you to wake up based on your sleep cycles.
 
 But what are sleep cycles and how do they factor into this system? Sleep cycles refer to the stages of sleep that our bodies naturally go through as we rest. These cycles include stages of light sleep, deep sleep, and rapid eye movement (REM) sleep. Each cycle typically lasts for 90-110 minutes and it is believed that we go through multiple cycles during a single night's sleep.
