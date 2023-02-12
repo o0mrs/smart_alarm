@@ -16,22 +16,69 @@ const Home = ()=>{
             setaa( hours + ':' + minutes )
             seta(ampm)
           }
-          
           setInterval(updateClock, 1000);
     },[])
+
+
+
     useEffect(()=>{
 axios.get('http://192.168.43.79:3000/alarms').then((gf,i)=>{
     console.log(gf.data.sort((a, b) => b.id - a.id))
     setalarm(gf.data.sort((a, b) => b.id - a.id))
 })
     },[])
+
+
+    const [answer, setAnswer] = useState('');
+    const [result, setResult] = useState('');
+  
+    const num1 = 12
+    const num2 = 20
+  
+
+
+
+
+    const [hasPassed, setHasPassed] = useState(false);
+    const [passedAlarmId, setPassedAlarmId] = useState(null);
     const [a, seta] = useState('')
     const [aa, setaa] = useState('')
     const [time, settime] = useState('')
     const [date, setdate] = useState('')
     const [alarm, setalarm] = useState([])
-   
+      
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        if (parseInt(answer) === num1 + num2) {
+          setResult('Correct!');
+          axios.post("http://192.168.43.79:3000/delete",{id:passedAlarmId})
+        } else {
+          setResult('Incorrect. Please try again.');
+        }
+      };
+  
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+          const now = new Date();
+    
+          for (let i = 0; i < alarm.length; i++) {
+            const alarmTime = new Date(alarm[i].time);
+            if (now >= alarmTime) {
+              setHasPassed(true);
+              setPassedAlarmId(alarm[i].id);
+              break;
+            }
+          }
+        }, 1000);
+    
+        return () => clearInterval(intervalId);
+      }, [alarm]);
+    
+    
         // YYYY/MM/DD HH:MM
+        if(!hasPassed){
+
+        
     return(   
 <div className="max-w-[100vw]  bga h-screen grid ">
 <div className="modal text-white " id="my-modal-2">
@@ -52,6 +99,9 @@ axios.get('http://192.168.43.79:3000/alarms').then((gf,i)=>{
     </div>
   </div>
 </div>
+<div>
+
+    </div>
 <div className="w-full h-[30vh] grid place-items-center ">
 <div className="text-[#8E98A1] -mt-3 text-xl Poppins font-bold">
 ZUIS
@@ -96,6 +146,33 @@ return(
 </div>
 </div>
 </div>
-    )
+    )}else{
+        return(
+<div className="max-w-[100vw]  bga h-screen  text-white text-center text-xl">
+<div className="w-full h-[30vh] grid place-items-center ">
+<div className="text-[#8E98A1] -mt-10 text-xl Poppins font-bold">
+ZUIS
+</div>
+    <div className="text-7xl text-[#8E98A1] Poppins font-bold mb-4 ">
+
+        <div>
+            {/* {aa}<span className="text-xs">    {a}</span> */}
+        </div>
+    <div className='text-xl mt-1 -mr-5 float-right '>
+
+    </div>
+    </div>
+</div>
+<div className='-mt-32'>
+<p>What is the sum of {num1} and {num2}?</p>
+            <form className='grid  place-items-center' onSubmit={handleSubmit}>
+              <input type="text" className='input max-w-[50vw] mt-12' value={answer} onChange={(event)=>{setAnswer(event.target.value);}} />
+              <button className=' mt-4' type="submit">Submit</button>
+            </form>
+            <p className='mt-5'>{result}</p>
+</div>
+          </div>
+        )
+    }
 }
 export default Home;
