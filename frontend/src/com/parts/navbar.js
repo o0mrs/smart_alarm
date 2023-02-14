@@ -29,7 +29,7 @@ const NavBar = ()=>{
   <div className="navbar-start">
     <div className="dropdown  text-white">
     <label tabIndex={0} className="btn btn-ghost btn-circle">
-    <i class="fa-solid fa-bars-staggered text-xl"></i>      </label>
+    <i className="fa-solid fa-bars-staggered text-xl"></i>      </label>
       <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-300 rounded-box w-52">
         <li onClick={()=>{navigate('/',{replace:false})}}><a>Homepage</a></li>
         <li onClick={()=>{navigate('/',{replace:false})}}><a>About</a></li>
