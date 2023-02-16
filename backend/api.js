@@ -70,7 +70,7 @@ const show = ()=>{
   }
 }
 var job = new CronJob(
-	'*/5  * * * *',
+	'* * * * *',
 	function() {
 let time = getCurrentTime()
 
@@ -80,9 +80,10 @@ db.query("SELECT * FROM alarms WHERE time = ?",[time],(err2,result2)=>{
         console.log(err2)
       }else{
 if(result2.length > 0){
+  console.log(result2)
     console.log('alarm activeted')
     BUZZER.writeSync(2)
-detectFace();
+detectFace(result2[0].id);
     // give power to the buzzer
     // turn an led on
 }else{
@@ -98,7 +99,7 @@ detectFace();
 // paths
 // test
 var count = 0;
-const detectFace = async()=>{
+const detectFace = async(id)=>{
 
 detect.writeSync(0)
   myCamera.snap()
@@ -129,14 +130,42 @@ detect.writeSync(0)
       count =0;
     }
     console.log(predictions);
-    if(count<5){
-      detectFace()
-    }else{
-      detect.writeSync(1)
-      BUZZER.writeSync(1)
-      count =0;
-    }
-    console.log(count)
+    db.query("SELECT * FROM alarms WHERE id = ?",[id],(err2,result2)=>{
+      if(err2){
+          console.log(err2)
+        }else{
+  if(result2.length > 0){
+      console.log('alarm activeted')
+      BUZZER.writeSync(2)
+      if(count<5){
+        detectFace(id)
+      }else{
+        detect.writeSync(1)
+        BUZZER.writeSync(1)
+        count =0;
+        db.query("DELETE FROM alarms WHERE id = ?",[id],(err2,result2)=>{
+          if(err2){
+              console.log(err2)
+              // res.send({code:404})
+            }else{
+              // res.send(200)
+            }
+    
+      })
+      }
+      console.log(count)
+      // give power to the buzzer
+      // turn an led on
+  }else{
+    console.log('no alrams')
+    detect.writeSync(1)
+    BUZZER.writeSync(1)
+    count =0;
+  }
+        }
+  })
+  
+
 
     // res.send(`${JSON.stringify(predictions)}`);
   })
@@ -153,7 +182,7 @@ let time = ((today.getHours().toString()).length>1? today.getHours() : "0"+today
 var dateTime = date+' '+time;
 console.log(getCurrentTime())
 BUZZER.writeSync(2)
-detectFace();
+detectFace(11);
 db.query("SELECT * FROM alarms",[],(err2,result2)=>{
   if(err2){
       console.log(err2)
@@ -176,6 +205,19 @@ app.get('/alarms',(req,res)=>{
           }
 
     })
+})
+
+app.post('/delete',(req,res)=>{
+const id = req.body.id
+  db.query("DELETE FROM alarms WHERE id = ?",[id],(err2,result2)=>{
+      if(err2){
+          console.log(err2)
+          res.send({code:404})
+        }else{
+          res.send(200)
+        }
+
+  })
 })
 
 
